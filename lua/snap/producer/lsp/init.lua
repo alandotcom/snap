@@ -104,4 +104,9 @@ local function symbols(_25_)
   local winnr = _arg_26_["winnr"]
   return lsp_producer(get_bufnr(winnr), "textDocument/documentSymbol", get_params(winnr), transformers.symbols)
 end
-return {definitions = definitions, implementations = implementations, type_definitions = type_definitions, references = references, symbols = symbols}
+local function workspaceSymbols(_27_)
+  local _arg_28_ = _27_
+  local winnr = _arg_28_["winnr"]
+  return lsp_producer(get_bufnr(winnr), "workspace/symbol", get_params(winnr), transformers.symbols)
+end
+return {definitions = definitions, implementations = implementations, type_definitions = type_definitions, references = references, symbols = symbols, workspaceSymbols = workspaceSymbols}

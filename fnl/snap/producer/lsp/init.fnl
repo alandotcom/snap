@@ -63,8 +63,17 @@
     (get-params winnr)
     transformers.symbols))
 
+
+(fn workspaceSymbols [{: winnr}]
+  (lsp-producer
+    (get-bufnr winnr)
+    "workspace/symbol"
+    (get-params winnr)
+    transformers.symbols))
+
 {: definitions
  : implementations
  : type_definitions
  : references
- : symbols}
+ : symbols
+ : workspaceSymbols}
